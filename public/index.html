@@ -55,40 +55,48 @@
   .nav-wrap {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 14px 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     color: var(--cream);
+    flex-shrink: 0;
+  }
+
+  /* Stacked logo text for nav bar to save horizontal space */
+  .nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
   }
 
   .nav-brand .pour {
     font-family: 'Bebas Neue', Impact, sans-serif;
-    font-size: 28px;
-    line-height: .82;
+    font-size: 20px;
     letter-spacing: .03em;
   }
 
   .nav-brand .live {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     font-weight: 700;
-    font-size: 11px;
-    letter-spacing: .5em;
+    font-size: 9px;
+    letter-spacing: .4em;
     color: var(--amber);
   }
 
   .nav-brand .live i {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: var(--amber);
     display: inline-block;
@@ -96,14 +104,16 @@
 
   .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .nav-links a {
     color: var(--muted);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 500;
     transition: color .15s ease;
   }
@@ -115,7 +125,7 @@
   .nav-cta {
     background: var(--amber);
     color: var(--night) !important;
-    padding: 8px 16px;
+    padding: 6px 14px;
     border-radius: 999px;
     font-weight: 600;
   }
@@ -500,16 +510,12 @@
   }
 
   @media (max-width:768px) {
-    .nav-links {
-      gap: 16px;
-      font-size: 13px;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+    .nav-wrap {
+      padding: 10px 14px;
     }
-    .nav-links::-webkit-scrollbar {
-      display: none;
+    .nav-links {
+      gap: 10px;
+      font-size: 12px;
     }
     .wrap {
       padding:24px 16px 40px;
@@ -551,8 +557,15 @@
   <nav class="nav-bar">
     <div class="nav-wrap">
       <a href="/" class="nav-brand">
-        <span class="pour">POUR</span>
-        <span class="live"><i></i>LIVE</span>
+        <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 8 C46 15 41 21 41 27 A9 9 0 0 0 59 27 C59 21 54 15 50 8 Z" fill="#F2A33A"/>
+          <path d="M18 44 L82 44 Q78 66 50 68 Q22 66 18 44 Z" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M50 68 L50 88 M36 90 L64 90" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="nav-brand-text">
+          <span class="pour">POUR</span>
+          <span class="live"><i></i>LIVE</span>
+        </div>
       </a>
       <div class="nav-links">
         <a href="/" class="active">Home</a>

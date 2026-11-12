@@ -501,10 +501,15 @@
 
   @media (max-width:768px) {
     .nav-links {
-      gap: 12px;
+      gap: 16px;
       font-size: 13px;
       overflow-x: auto;
       white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
     .wrap {
       padding:24px 16px 40px;
@@ -550,8 +555,8 @@
         <span class="live"><i></i>LIVE</span>
       </a>
       <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/book-your-bartender" class="active">Book Your Bartender</a>
+        <a href="/" class="active">Home</a>
+        <a href="/book-your-bartender">Book Your Bartender</a>
         <a href="/meet-your-bartender">Meet Your Bartender</a>
         <a href="/faqs">FAQs</a>
         <a href="/privacy">Privacy</a>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Bartender | Pour Live</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night:#0E0D0C;
+    --panel:#151311;
+    --cream:#F6F0E6;
+    --amber:#F2A33A;
+    --line:#2A2724;
+    --muted:#BDB5A8;
+    --field:#3A3631;
+  }
+
+  * {
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  html {
+    background:var(--night);
+    margin:0;
+    padding:0;
+    width:100%;
+  }
+
+  body {
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:var(--night);
+    color:var(--cream);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.55;
+    -webkit-text-size-adjust:100%;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* Navigation Bar Styles */
+  .nav-bar {
+    border-bottom: 1px solid var(--line);
+    background: rgba(14, 13, 12, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .nav-brand .pour {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 28px;
+    line-height: .82;
+    letter-spacing: .03em;
+  }
+
+  .nav-brand .live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .5em;
+    color: var(--amber);
+  }
+
+  .nav-brand .live i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .15s ease;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--amber);
+  }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--night) !important;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .nav-cta:hover {
+    background: #FFC06A;
+  }
+
+  .wrap {
+    max-width:1080px;
+    margin:0 auto;
+    padding:36px 20px 60px;
+  }
+
+  .page-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+
+  .page-header h1 {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 56px;
+    letter-spacing: .02em;
+    margin: 0 0 8px;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .page-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 60ch;
+  }
+
+  h2 {
+    font-family:'Bebas Neue',Impact,sans-serif;
+    font-weight:400;
+    font-size:36px;
+    letter-spacing:.02em;
+    margin:0 0 16px;
+    color:var(--cream);
+  }
+
+  .pkgs {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+    margin-bottom: 16px;
+  }
+
+  .pkg {
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+    background:var(--panel);
+    display:flex;
+    flex-direction:column;
+  }
+
+  .pkg.featured {
+    border-color:var(--amber);
+    box-shadow:0 0 0 1px var(--amber);
+  }
+
+  .pkg h3 {
+    margin:0 0 4px;
+    font-size:20px;
+    color:var(--cream);
+  }
+
+  .price {
+    font-family:'Bebas Neue',Impact,sans-serif;
+    font-size:42px;
+    color:var(--amber);
+    line-height:1.1;
+  }
+
+  .price small {
+    font-family:Inter,sans-serif;
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .pkg ul {
+    margin:14px 0 0;
+    padding-left:18px;
+    flex:1;
+  }
+
+  .pkg li {
+    margin:6px 0;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .note {
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:48px;
+    max-width:76ch;
+    line-height:1.6;
+  }
+
+  .book {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+    align-items:start;
+  }
+
+  .panel {
+    display:grid;
+    gap:16px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+    background:var(--panel);
+  }
+
+  .panel h3 {
+    margin:0;
+    font-size:18px;
+    color:var(--amber);
+  }
+
+  .row {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:12px;
+  }
+
+  label {
+    display:block;
+    font-weight:600;
+    font-size:13.5px;
+    margin-bottom:6px;
+    color:var(--cream);
+  }
+
+  select,
+  input[type=number],
+  input[type=text],
+  input[type=tel],
+  input[type=email],
+  input[type=date],
+  input[type=time],
+  textarea {
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid var(--field);
+    background:var(--night);
+    color:var(--cream);
+    font:inherit;
+    font-size:15px;
+    min-height:46px;
+    color-scheme:dark;
+  }
+
+  textarea {
+    min-height:92px;
+    resize:vertical;
+  }
+
+  .check {
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-weight:500;
+    font-size:14px;
+    margin:4px 0;
+    cursor:pointer;
+  }
+
+  .check input {
+    width:20px;
+    height:20px;
+    margin-top:2px;
+    accent-color:var(--amber);
+    flex:none;
+  }
+
+  .side {
+    display:grid;
+    gap:20px;
+  }
+
+  .total {
+    border-radius:18px;
+    padding:24px;
+    background:var(--amber);
+    color:var(--night);
+  }
+
+  .total .amt {
+    font-family:'Bebas Neue',Impact,sans-serif;
+    font-size:64px;
+    line-height:1;
+    margin:4px 0 0;
+  }
+
+  .breakdown {
+    margin:14px 0 0;
+    padding:0;
+    list-style:none;
+    font-size:14.5px;
+    font-weight:500;
+  }
+
+  .breakdown li {
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:6px 0;
+    border-bottom:1px solid rgba(14,13,12,.2);
+  }
+
+  .breakdown li:last-child {
+    border-bottom:none;
+  }
+
+  .btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    width:100%;
+    padding:0 24px;
+    border:0;
+    border-radius:999px;
+    background:var(--amber);
+    color:var(--night);
+    font:700 16px Inter,sans-serif;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+
+  .btn:hover {
+    background:#FFC06A;
+  }
+
+  .btn:disabled {
+    opacity:.6;
+    cursor:wait;
+  }
+
+  .btn:focus-visible,
+  select:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline:2px solid var(--amber);
+    outline-offset:2px;
+  }
+
+  .msg {
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:14px;
+    font-weight:500;
+  }
+
+  .msg.ok {
+    background:#1E2A1A;
+    border:1px solid #4F7A3A;
+    color:#D4EFCE;
+  }
+
+  .msg.err {
+    background:#2C1715;
+    border:1px solid #8A3B32;
+    color:#FFD2CE;
+  }
+
+  .small {
+    font-size:12.5px;
+    color:var(--muted);
+    margin:0;
+    line-height:1.5;
+  }
+
+  .foot {
+    margin-top:56px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px 48px;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+
+  .foot-brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .foot-brand .pour {
+    font-size:44px;
+  }
+
+  .foot-brand .live {
+    font-size:11px;
+    letter-spacing:.55em;
+  }
+
+  .foot-brand .live i {
+    width:7px;
+    height:7px;
+  }
+
+  .foot-cols {
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px 48px;
+  }
+
+  .foot h4 {
+    margin:0 0 8px;
+    font-size:14px;
+    color:var(--amber);
+  }
+
+  .foot p,
+  .foot a {
+    margin:0 0 6px;
+    font-size:14.5px;
+    color:var(--cream);
+    text-decoration:none;
+    display:block;
+  }
+
+  .foot a:hover {
+    color:var(--amber);
+  }
+
+  .legal {
+    width:100%;
+    margin-top:12px;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  @media (max-width:768px) {
+    .nav-links {
+      gap: 12px;
+      font-size: 13px;
+    }
+    .nav-links a:not(.nav-cta):not([href="book-your-bartender.html"]) {
+      display: none;
+    }
+    .wrap {
+      padding:24px 16px 40px;
+    }
+    .page-header h1 {
+      font-size: 40px;
+    }
+    h2 {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+    .total .amt {
+      font-size:52px;
+    }
+    .panel {
+      padding:20px 16px;
+    }
+    .foot {
+      margin-top:40px;
+      padding-top:20px;
+      gap:24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-brand">
+        <span class="pour">POUR</span>
+        <span class="live"><i></i>LIVE</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="book-your-bartender.html" class="active">Book Your Bartender</a>
+        <a href="index.html#meet-bartender">Meet Your Bartender</a>
+        <a href="index.html#faqs">FAQs</a>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="index.html#terms">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap" id="page-root">
+    <div class="page-header">
+      <h1>Book Your Bartender</h1>
+      <p>Review our service packages and pricing below, then fill out the date calculator to request your private bartending team.</p>
+    </div>
+
+    <h2>Packages & Pricing</h2>
+    <div class="pkgs" id="pkgs"></div>
+    <p class="note" id="policy"></p>
+
+    <h2>Book your date</h2>
+    <form id="bookForm" class="book" novalidate>
+      <div class="panel">
+        <h3>Your event</h3>
+        <div>
+          <label for="pkg">Package</label>
+          <select id="pkg" required></select>
+        </div>
+        <div class="row">
+          <div>
+            <label for="guests">Guests</label>
+            <input id="guests" type="number" min="1" max="1000" value="50" required>
+          </div>
+          <div>
+            <label for="hours">Hours of service</label>
+            <select id="hours" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="date">Event date</label>
+            <input id="date" type="date" required>
+          </div>
+          <div>
+            <label for="time">Start time</label>
+            <input id="time" type="time" value="18:00" required>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="etype">Event type</label>
+            <select id="etype" required></select>
+          </div>
+          <div>
+            <label for="alcohol">Who provides the alcohol?</label>
+            <select id="alcohol" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="city">Event city</label>
+            <input id="city" type="text" autocomplete="address-level2" required>
+          </div>
+          <div>
+            <label for="zip">Event ZIP</label>
+            <input id="zip" type="text" inputmode="numeric" pattern="\d{5}" maxlength="5" autocomplete="postal-code" required>
+          </div>
+        </div>
+        <div>
+          <label for="dist">Distance from Riverside</label>
+          <select id="dist"></select>
+        </div>
+        <div id="addons"></div>
+      </div>
+
+      <div class="side">
+        <div class="total" aria-live="polite">
+          <p style="font-weight:600;margin:0">Estimated total</p>
+          <div class="amt" id="amt">$0</div>
+          <ul class="breakdown" id="breakdown"></ul>
+        </div>
+
+        <div class="panel">
+          <h3>Your info</h3>
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div>
+            <label for="notes">Anything else? (venue, theme, favorite drinks)</label>
+            <textarea id="notes" placeholder="Tell us about your event layout or signature drink ideas..."></textarea>
+          </div>
+          <label class="check">
+            <input id="consent" type="checkbox" required>
+            <span>Pour Live may contact me by phone, text, and email about this booking.</span>
+          </label>
+          <button class="btn" id="submitBtn" type="submit">Request your date</button>
+          <div id="formMsg" role="status"></div>
+          <p class="small">You'll get an estimate by email right away. Final quote confirmed after we review your details.</p>
+        </div>
+      </div>
+    </form>
+
+    <footer class="foot">
+      <div class="foot-brand">
+        <svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 8 C46 15 41 21 41 27 A9 9 0 0 0 59 27 C59 21 54 15 50 8 Z" fill="#F2A33A"/>
+          <path d="M18 44 L82 44 Q78 66 50 68 Q22 66 18 44 Z" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M50 68 L50 88 M36 90 L64 90" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="pour">POUR</div>
+          <div class="live"><i aria-hidden="true"></i>LIVE</div>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Book</h4>
+          <a href="mailto:bookpourlive@gmail.com" target="_blank" rel="noopener">bookpourlive@gmail.com</a>
+          <a href="https://www.pourlive.com" target="_top">www.pourlive.com</a>
+        </div>
+        <div>
+          <h4>Service area</h4>
+          <p>Inland Empire</p>
+          <p>Los Angeles</p>
+          <p>Orange County</p>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <a href="https://www.instagram.com/pourlive" target="_blank" rel="noopener">Instagram @pourlive</a>
+        </div>
+      </div>
+      <p class="legal">© 2026 Pour Live. Private bartending service. Clients provide all alcohol; we never sell or supply alcohol.</p>
+    </footer>
+  </div>
+
+<script>
+const FORM_MAP = null; 
+const CONFIG = {
+  minHours: 4,
+  guestsPerBartender: 50,
+  packages: [
+    { id: 'Beer & Wine', rate: 50, featured: false, perks: ['Beer & wine service', 'Cups, ice & coolers set up', 'Bar setup and cleanup'] },
+    { id: 'Full Bar', rate: 60, featured: true, perks: ['Spirits, mixers & classic cocktails', 'Garnishes & bar tools', 'Bar setup and cleanup'] },
+    { id: 'Signature Cocktails', rate: 70, featured: false, perks: ['Everything in Full Bar', '2 custom cocktails for your event', 'Printed drink menu'] }
+  ],
+  addOns: [
+    { id: 'Mocktail menu', type: 'flat', price: 50 },
+    { id: 'Barback', type: 'hourly', price: 30 },
+    { id: 'Glassware setup', type: 'flat', price: 75 }
+  ],
+  travelTiers: [ { maxMiles: 25, fee: 0 }, { maxMiles: 40, fee: 25 }, { maxMiles: 60, fee: 50 } ],
+  peakSurcharge: 0.25,
+  peakDates: [
+    { name: "New Year's Eve", from: '12-31', to: '01-01' },
+    { name: 'Christmas party season', from: '12-12', to: '12-24' },
+    { name: '4th of July', from: '07-03', to: '07-05' },
+    { name: 'Halloween weekend', from: '10-25', to: '10-31' },
+    { name: 'Super Bowl Sunday', rule: 'superbowl' }
+  ],
+  policy: 'Rates are per bartender, per hour, with a 4-hour minimum. Events over 50 guests add a bartender per 50 guests. Travel is free within 25 miles of Riverside. Holiday dates are +25%. Tip jar welcome.'
+};
+
+const $ = id => document.getElementById(id);
+const money = n => '$' + Math.round(n).toLocaleString();
+const items = (FORM_MAP && FORM_MAP.items) || {};
+const choicesFor = (title, fallback) => (items[title] && items[title].choices && items[title].choices.length) ? items[title].choices : fallback;
+
+// Packages
+$('pkgs').innerHTML = CONFIG.packages.map(p => `
+  <article class="pkg${p.featured ? ' featured' : ''}">
+    <h3>${p.id}</h3>
+    <div class="price">${money(p.rate)}<small> per bartender / hour</small></div>
+    <ul>${p.perks.map(x => `<li>${x}</li>`).join('')}</ul>
+  </article>`).join('');
+$('policy').textContent = CONFIG.policy;
+
+// Selects
+$('pkg').innerHTML = CONFIG.packages.map(p => `<option value="${p.id}"${p.featured ? ' selected' : ''}>${p.id} (${money(p.rate)}/hr)</option>`).join('');
+$('hours').innerHTML = choicesFor('Hours of service', ['4', '5', '6', '7', '8']).map(h => `<option value="${h}">${h} hours</option>`).join('');
+$('etype').innerHTML = '<option value="">Choose one</option>' + choicesFor('Event type', ['Wedding', 'Birthday', 'Corporate', 'House party', 'Holiday party', 'Other']).map(v => `<option>${v}</option>`).join('');
+$('alcohol').innerHTML = '<option value="">Choose one</option>' + choicesFor('Who is providing the alcohol?', ['I am (host provides)', 'Venue provides', 'Not sure yet']).map(v => `<option>${v}</option>`).join('');
+$('addons').innerHTML = '<label>Add-ons</label>' + CONFIG.addOns.map(a => `
+  <label class="check"><input type="checkbox" value="${a.id}"> <span>${a.id} (+${money(a.price)}${a.type === 'hourly' ? '/hr' : ''})</span></label>`).join('');
+
+let prev = 0;
+$('dist').innerHTML = CONFIG.travelTiers.map((t, i) => {
+  const label = i === 0 ? `Within ${t.maxMiles} miles` : `${prev + 1}–${t.maxMiles} miles`;
+  prev = t.maxMiles;
+  return `<option value="${i}">${label}${t.fee ? ` (+${money(t.fee)})` : ' (free)'}</option>`;
+}).join('') + `<option value="far">Over ${prev} miles (quoted separately)</option>`;
+
+// Holiday detection
+function superBowlMd(year) {
+  const feb1 = new Date(year, 1, 1).getDay();
+  return '02-' + String(1 + ((7 - feb1) % 7) + 7).padStart(2, '0');
+}
+
+function peakName(dateStr) {
+  const m = String(dateStr || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return '';
+  const year = Number(m[1]), md = m[2] + '-' + m[3];
+  for (const p of CONFIG.peakDates) {
+    if (p.rule === 'superbowl') {
+      if (md === superBowlMd(year)) return p.name;
+      continue;
+    }
+    const inside = p.from <= p.to ? (md >= p.from && md <= p.to) : (md >= p.from || md <= p.to);
+    if (inside) return p.name;
+  }
+  return '';
+}
+
+// Live Estimate Calculation
+function calc() {
+  const pkg = CONFIG.packages.find(p => p.id === $('pkg').value);
+  if (!pkg) return;
+  const guests = Math.max(1, Number($('guests').value) || 1);
+  const hours = Math.max(CONFIG.minHours, Number($('hours').value) || CONFIG.minHours);
+  const bartenders = Math.ceil(guests / CONFIG.guestsPerBartender);
+  const lines = [[`${bartenders} bartender${bartenders > 1 ? 's' : ''} × ${hours} hrs × ${money(pkg.rate)}`, pkg.rate * hours * bartenders]];
+
+  document.querySelectorAll('#addons input:checked').forEach(cb => {
+    const a = CONFIG.addOns.find(x => x.id === cb.value);
+    if (a) {
+      lines.push([a.id + (a.type === 'hourly' ? ` × ${hours} hrs` : ''), a.type === 'hourly' ? a.price * hours : a.price]);
+    }
+  });
+
+  let total = lines.reduce((s, l) => s + l[1], 0);
+  const peak = peakName($('date').value);
+  if (peak) {
+    const x = Math.round(total * CONFIG.peakSurcharge);
+    total += x;
+    lines.push([`Holiday rate (${peak}) +${Math.round(CONFIG.peakSurcharge * 100)}%`, x]);
+  }
+
+  let suffix = '';
+  const d = $('dist').value;
+  if (d === 'far') {
+    suffix = ' + travel';
+  } else {
+    const t = CONFIG.travelTiers[Number(d)];
+    if (t && t.fee) {
+      total += t.fee;
+      lines.push([`Travel (up to ${t.maxMiles} mi)`, t.fee]);
+    }
+  }
+
+  $('amt').textContent = money(total) + suffix;
+  $('breakdown').innerHTML = lines.map(([t, v]) => `<li><span>${t}</span><span>${money(v)}</span></li>`).join('');
+}
+
+document.querySelectorAll('#bookForm select, #bookForm input').forEach(el => el.addEventListener('input', calc));
+calc();
+
+// Form Submit Handling
+function setMsg(kind, text) {
+  $('formMsg').innerHTML = text ? `<div class="msg ${kind}">${text}</div>` : '';
+}
+
+function exactChoice(title, startsWith) {
+  const list = (items[title] && items[title].choices) || [];
+  return list.find(c => c.startsWith(startsWith)) || startsWith;
+}
+
+$('bookForm').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  setMsg('', '');
+  if (!FORM_MAP || !FORM_MAP.action) {
+    setMsg('err', 'Booking system connecting. Please email bookpourlive@gmail.com directly.');
+    return;
+  }
+  const f = $('bookForm');
+  if (!f.checkValidity()) {
+    const bad = f.querySelector(':invalid');
+    const label = bad && bad.labels && bad.labels[0] ? bad.labels[0].textContent.trim().toLowerCase() : 'all required fields';
+    setMsg('err', 'Please fill in ' + label + '.');
+    if (bad) bad.focus();
+    return;
+  }
+
+  const p = new URLSearchParams();
+  const put = (title, value) => {
+    if (items[title] && value !== '' && value != null) {
+      p.append('entry.' + items[title].entry, value);
+    }
+  };
+
+  put('Full name', $('name').value.trim());
+  put('Phone', $('phone').value.trim());
+  put('Email', $('email').value.trim());
+
+  if ($('date').value && items['Event date']) {
+    const [y, mo, da] = $('date').value.split('-');
+    const e = 'entry.' + items['Event date'].entry;
+    p.append(e + '_year', y);
+    p.append(e + '_month', String(Number(mo)));
+    p.append(e + '_day', String(Number(da)));
+  }
+
+  if ($('time').value && items['Start time']) {
+    const [hh, mm] = $('time').value.split(':');
+    const e = 'entry.' + items['Start time'].entry;
+    p.append(e + '_hour', hh);
+    p.append(e + '_minute', mm);
+  }
+
+  put('Hours of service', $('hours').value);
+  put('Number of guests', $('guests').value);
+  put('Event type', $('etype').value);
+
+  if (items['Event ZIP code']) {
+    put('Event city', $('city').value.trim());
+    put('Event ZIP code', $('zip').value.trim());
+  } else {
+    put('Event city & ZIP', `${$('city').value.trim()} ${$('zip').value.trim()}`);
+  }
+
+  put('Package', exactChoice('Package', $('pkg').value));
+  document.querySelectorAll('#addons input:checked').forEach(cb => {
+    put('Add-ons', exactChoice('Add-ons', cb.value));
+  });
+  put('Who is providing the alcohol?', $('alcohol').value);
+  put('Anything else we should know? (venue, theme, favorite drinks)', $('notes').value.trim());
+  if (items['Contact consent'] && items['Contact consent'].choices) {
+    put('Contact consent', items['Contact consent'].choices[0]);
+  }
+
+  $('submitBtn').disabled = true;
+  $('submitBtn').textContent = 'Sending…';
+
+  try {
+    await fetch(FORM_MAP.action, { method: 'POST', mode: 'no-cors', body: p });
+    f.reset();
+    calc();
+    setMsg('ok', "Request sent! Your estimate is on its way to your inbox, and we'll follow up within 24 hours to lock in your date.");
+  } catch (err) {
+    setMsg('err', 'Something went wrong sending your request. Please try again, or email bookpourlive@gmail.com.');
+  } finally {
+    $('submitBtn').disabled = false;
+    $('submitBtn').textContent = 'Request your date';
+  }
+});
+</script>
+</body>
+</html>

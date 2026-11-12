@@ -108,7 +108,7 @@
     transition: color .15s ease;
   }
 
-  .nav-links a:hover {
+  .nav-links a:hover, .nav-links a.active {
     color: var(--amber);
   }
 
@@ -504,7 +504,7 @@
       gap: 12px;
       font-size: 13px;
     }
-    .nav-links a:not(.nav-cta):not([href="#bookForm"]) {
+    .nav-links a:not(.active):not([href="/book-your-bartender"]) {
       display: none;
     }
     .wrap {
@@ -543,20 +543,20 @@
 </head>
 <body>
 
-  <!-- Navigation Bar (Reflecting Google Sites Menu) -->
+  <!-- Navigation Bar -->
   <nav class="nav-bar">
     <div class="nav-wrap">
-      <a href="#" class="nav-brand">
+      <a href="/" class="nav-brand">
         <span class="pour">POUR</span>
         <span class="live"><i></i>LIVE</span>
       </a>
       <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#bookForm">Book Your Bartender</a>
-        <a href="#meet-bartender">Meet Your Bartender</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#terms">Terms of Service</a>
+        <a href="/">Home</a>
+        <a href="/book-your-bartender" class="active">Book Your Bartender</a>
+        <a href="/meet-your-bartender">Meet Your Bartender</a>
+        <a href="/faqs">FAQs</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms-of-service">Terms of Service</a>
       </div>
     </div>
   </nav>
@@ -835,6 +835,11 @@ function setMsg(kind, text) {
   $('formMsg').innerHTML = text ? `<div class="msg ${kind}">${text}</div>` : '';
 }
 
+function exactChoice(title, startsWith) {
+  const list = (items[title] && items[title].choices) || [];
+  return list.find(c => c.startsWith(startsWith)) || startsWith;
+}
+
 $('bookForm').addEventListener('submit', async (ev) => {
   ev.preventDefault();
   setMsg('', '');
@@ -850,7 +855,68 @@ $('bookForm').addEventListener('submit', async (ev) => {
     if (bad) bad.focus();
     return;
   }
-  // Form submission handler logic continues...
+
+  const p = new URLSearchParams();
+  const put = (title, value) => {
+    if (items[title] && value !== '' && value != null) {
+      p.append('entry.' + items[title].entry, value);
+    }
+  };
+
+  put('Full name', $('name').value.trim());
+  put('Phone', $('phone').value.trim());
+  put('Email', $('email').value.trim());
+
+  if ($('date').value && items['Event date']) {
+    const [y, mo, da] = $('date').value.split('-');
+    const e = 'entry.' + items['Event date'].entry;
+    p.append(e + '_year', y);
+    p.append(e + '_month', String(Number(mo)));
+    p.append(e + '_day', String(Number(da)));
+  }
+
+  if ($('time').value && items['Start time']) {
+    const [hh, mm] = $('time').value.split(':');
+    const e = 'entry.' + items['Start time'].entry;
+    p.append(e + '_hour', hh);
+    p.append(e + '_minute', mm);
+  }
+
+  put('Hours of service', $('hours').value);
+  put('Number of guests', $('guests').value);
+  put('Event type', $('etype').value);
+
+  if (items['Event ZIP code']) {
+    put('Event city', $('city').value.trim());
+    put('Event ZIP code', $('zip').value.trim());
+  } else {
+    put('Event city & ZIP', `${$('city').value.trim()} ${$('zip').value.trim()}`);
+  }
+
+  put('Package', exactChoice('Package', $('pkg').value));
+  document.querySelectorAll('#addons input:checked').forEach(cb => {
+    put('Add-ons', exactChoice('Add-ons', cb.value));
+  });
+  put('Who is providing the alcohol?', $('alcohol').value);
+  put('Anything else we should know? (venue, theme, favorite drinks)', $('notes').value.trim());
+  if (items['Contact consent'] && items['Contact consent'].choices) {
+    put('Contact consent', items['Contact consent'].choices[0]);
+  }
+
+  $('submitBtn').disabled = true;
+  $('submitBtn').textContent = 'Sending…';
+
+  try {
+    await fetch(FORM_MAP.action, { method: 'POST', mode: 'no-cors', body: p });
+    f.reset();
+    calc();
+    setMsg('ok', "Request sent! Your estimate is on its way to your inbox, and we'll follow up within 24 hours to lock in your date.");
+  } catch (err) {
+    setMsg('err', 'Something went wrong sending your request. Please try again, or email bookpourlive@gmail.com.');
+  } finally {
+    $('submitBtn').disabled = false;
+    $('submitBtn').textContent = 'Request your date';
+  }
 });
 </script>
 </body>

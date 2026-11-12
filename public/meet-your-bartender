@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Your Bartender | Pour Live Private Bartending</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night:#0E0D0C;
+    --panel:#151311;
+    --cream:#F6F0E6;
+    --amber:#F2A33A;
+    --line:#2A2724;
+    --muted:#BDB5A8;
+  }
+
+  * {
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  html {
+    background:var(--night);
+    margin:0;
+    padding:0;
+    width:100%;
+  }
+
+  body {
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:var(--night);
+    color:var(--cream);
+    font-family:Inter,system-ui,sans-serif;
+    line-height:1.65;
+  }
+
+  /* Navigation Bar Styles */
+  .nav-bar {
+    border-bottom: 1px solid var(--line);
+    background: rgba(14, 13, 12, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .nav-brand .pour {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 28px;
+    line-height: .82;
+    letter-spacing: .03em;
+  }
+
+  .nav-brand .live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .5em;
+    color: var(--amber);
+  }
+
+  .nav-brand .live i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .15s ease;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--amber);
+  }
+
+  .wrap {
+    max-width:1000px;
+    margin:0 auto;
+    padding:40px 24px 120px;
+  }
+
+  .hero {
+    display:grid;
+    grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+    gap:40px;
+    align-items:center;
+  }
+
+  .photo {
+    position:relative;
+  }
+
+  .photo img {
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    border-radius:24px;
+    display:block;
+    background:var(--panel);
+  }
+
+  .badge {
+    position:absolute;
+    left:16px;
+    bottom:16px;
+    background:var(--night);
+    border:1px solid var(--amber);
+    border-radius:999px;
+    padding:8px 16px;
+    font-weight:700;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .badge i {
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--amber);
+    display:inline-block;
+  }
+
+  .eyebrow {
+    color:var(--amber);
+    font-weight:600;
+    margin:0 0 6px;
+  }
+
+  h1 {
+    font-family:'Bebas Neue',Impact,sans-serif;
+    font-weight:400;
+    font-size:96px;
+    line-height:.85;
+    letter-spacing:.02em;
+    margin:0 0 14px;
+  }
+
+  .role {
+    font-size:20px;
+    font-weight:600;
+    margin:0 0 16px;
+  }
+
+  .intro p {
+    margin:0 0 12px;
+    max-width:58ch;
+    color:#E6DFD3;
+  }
+
+  h2 {
+    font-family:'Bebas Neue',Impact,sans-serif;
+    font-weight:400;
+    font-size:36px;
+    letter-spacing:.02em;
+    margin:56px 0 16px;
+  }
+
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+  }
+
+  .card {
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--panel);
+    padding:22px;
+  }
+
+  .card h3 {
+    margin:0 0 6px;
+    font-size:18px;
+    color: var(--cream);
+  }
+
+  .card p {
+    margin:0;
+    color:#E6DFD3;
+  }
+
+  .beyond {
+    margin-top:56px;
+    border:1px solid var(--line);
+    border-radius:24px;
+    background:var(--panel);
+    padding:32px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:32px;
+    align-items:start;
+  }
+
+  .beyond h2 {
+    margin-top:0;
+  }
+
+  .beyond p {
+    margin:0 0 12px;
+    color:#E6DFD3;
+  }
+
+  .skills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+
+  .skills li {
+    border:1px solid var(--amber);
+    color:var(--cream);
+    border-radius:999px;
+    padding:8px 16px;
+    font-weight:600;
+    font-size:15px;
+  }
+
+  .link {
+    display:inline-block;
+    margin-top:8px;
+    color:var(--amber);
+    font-weight:700;
+    text-decoration:none;
+  }
+
+  .link:hover {
+    text-decoration:underline;
+  }
+
+  .cta {
+    margin-top:40px;
+    border-radius:18px;
+    padding:28px;
+    background:var(--amber);
+    color:var(--night);
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .cta h3 {
+    font-family:'Bebas Neue',Impact,sans-serif;
+    font-weight:400;
+    font-size:36px;
+    margin:0;
+    line-height:1;
+  }
+
+  .cta p {
+    margin:4px 0 0;
+  }
+
+  .btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    padding:0 24px;
+    border-radius:999px;
+    background:var(--night);
+    color:var(--cream);
+    font-weight:700;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+
+  .btn:hover {
+    background:#2A2724;
+  }
+
+  a:focus-visible {
+    outline:3px solid var(--cream);
+    outline-offset:2px;
+  }
+
+  .foot {
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .foot a {
+    color:var(--cream);
+    text-decoration:none;
+  }
+
+  .foot a:hover {
+    color: var(--amber);
+  }
+
+  @media (max-width:760px){
+    .nav-links {
+      gap: 12px;
+      font-size: 13px;
+    }
+    .nav-links a:not(.active):not([href="book-your-bartender.html"]) {
+      display: none;
+    }
+    .hero, .beyond {
+      grid-template-columns:1fr;
+    }
+    h1 {
+      font-size:72px;
+    }
+    .photo img {
+      aspect-ratio:1/1;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-brand">
+        <span class="pour">POUR</span>
+        <span class="live"><i></i>LIVE</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="book-your-bartender.html">Book Your Bartender</a>
+        <a href="meet-your-bartender.html" class="active">Meet Your Bartender</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="photo">
+        <img src="https://lh3.googleusercontent.com/d/14Jmei1JewZq9f1ADkIHuH1RM6OTibVE7=w1200" alt="Trey, founder and lead bartender of Pour Live">
+        <div class="badge"><i aria-hidden="true"></i>Founder &amp; Lead Bartender</div>
+      </div>
+      <div class="intro">
+        <p class="eyebrow">Meet your bartender</p>
+        <h1>Hi, I'm Trey</h1>
+        <p class="role">Founder &amp; Lead Bartender, Pour Live</p>
+        <p>I started Pour Live to bring the feel of a great bar to your own backyard, venue, or living room: good drinks, fast service, and a bartender who keeps the energy right from the first pour to last call.</p>
+        <p>I've been behind the bar since college, more than 10 years of slinging drinks, reading crowds, and keeping parties moving. Ask me what I love to make and you'll get three answers: a bright, salty <b>Paloma</b>, a fresh-muddled <b>Mojito</b>, and, when the night calls for it, an <b>AMF</b> that lives up to its name.</p>
+        <p>When you book Pour Live, you're not getting a random temp. You're getting me, or a bartender I've personally trained to the same standard.</p>
+      </div>
+    </section>
+
+    <h2>What I bring to your event</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Hospitality first</h3>
+        <p>Reading the room, remembering faces, and keeping lines short so your guests feel taken care of all night.</p>
+      </div>
+      <div class="card">
+        <h3>Drinks done right</h3>
+        <p>Classic cocktails made properly, plus custom signature drinks designed around your event, theme, or favorite flavors.</p>
+      </div>
+      <div class="card">
+        <h3>Zero stress for you</h3>
+        <p>A shopping list before the event, setup before guests arrive, and the bar cleaned up when the night's done.</p>
+      </div>
+      <div class="card">
+        <h3>Safe, responsible service</h3>
+        <p>IDs checked, no serving minors or anyone who's had too much, so the party stays fun for everyone.</p>
+      </div>
+    </div>
+
+    <section class="beyond">
+      <div>
+        <h2>Beyond the bar</h2>
+        <p>Behind the bar, I'm a builder. I also work in web design, branding, marketing, UX/UI, and automation, which is why booking Pour Live is so easy.</p>
+        <p>This site, the logo, the instant estimate calculator, and the quote that lands in your inbox seconds after you request a date? I designed and built all of it. The same attention to detail goes into every event.</p>
+        <p>Run a small business and need a website that actually brings in customers? I build those too.</p>
+        <a class="link" href="https://www.webrite.net" target="_blank" rel="noopener">See my web design work at WebRite</a>
+      </div>
+      <ul class="skills" aria-label="Trey's other skills">
+        <li>Web design</li>
+        <li>Branding</li>
+        <li>Marketing</li>
+        <li>UX/UI</li>
+        <li>Automation</li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <div>
+        <h3>Let's make your event one to remember</h3>
+        <p>See your estimate instantly and request your date.</p>
+      </div>
+      <a class="btn" href="book-your-bartender.html">Book Trey</a>
+    </div>
+
+    <p class="foot">© 2026 Pour Live · Private bartending in the Inland Empire &amp; Los Angeles · <a href="mailto:bookpourlive@gmail.com" target="_blank" rel="noopener">bookpourlive@gmail.com</a></p>
+  </div>
+
+</body>
+</html>

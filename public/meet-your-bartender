@@ -338,7 +338,7 @@
       gap: 12px;
       font-size: 13px;
     }
-    .nav-links a:not(.active):not([href="book-your-bartender.html"]) {
+    .nav-links a:not(.active):not([href="/book-your-bartender"]) {
       display: none;
     }
     .hero, .beyond {
@@ -358,17 +358,17 @@
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <div class="nav-wrap">
-      <a href="index.html" class="nav-brand">
+      <a href="/" class="nav-brand">
         <span class="pour">POUR</span>
         <span class="live"><i></i>LIVE</span>
       </a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="book-your-bartender.html">Book Your Bartender</a>
-        <a href="meet-your-bartender.html" class="active">Meet Your Bartender</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="/">Home</a>
+        <a href="/book-your-bartender">Book Your Bartender</a>
+        <a href="/meet-your-bartender" class="active">Meet Your Bartender</a>
+        <a href="/faqs">FAQs</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms-of-service">Terms of Service</a>
       </div>
     </div>
   </nav>
@@ -431,7 +431,7 @@
         <h3>Let's make your event one to remember</h3>
         <p>See your estimate instantly and request your date.</p>
       </div>
-      <a class="btn" href="book-your-bartender.html">Book Trey</a>
+      <a class="btn" href="/book-your-bartender">Book Trey</a>
     </div>
 
     <p class="foot">© 2026 Pour Live · Private bartending in the Inland Empire &amp; Los Angeles · <a href="mailto:bookpourlive@gmail.com" target="_blank" rel="noopener">bookpourlive@gmail.com</a></p>

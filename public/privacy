@@ -1,0 +1,90 @@
+<!-- POUR LIVE – Privacy & Discretion page embed (Insert > Embed > Embed code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#0E0D0C;--panel:#151311;--cream:#F6F0E6;--amber:#F2A33A;--line:#2A2724;--muted:#BDB5A8}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--night);color:var(--cream);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+  .wrap{max-width:820px;margin:0 auto;padding:40px 24px 120px}
+  h1{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:64px;line-height:.95;letter-spacing:.02em;margin:0 0 10px}
+  .lead{color:var(--muted);margin:0 0 28px;max-width:62ch}
+  .promise{border:1px solid var(--amber);border-radius:18px;background:var(--panel);padding:22px 24px;margin:0 0 12px}
+  .promise h2{margin-top:0}
+  .promise ul{margin:0;padding-left:20px}
+  .promise li{margin:6px 0}
+  h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:30px;letter-spacing:.02em;color:var(--amber);margin:36px 0 8px}
+  p,li{max-width:68ch}
+  ul{padding-left:20px}
+  a{color:var(--amber)}
+  a:focus-visible{outline:3px solid var(--cream);outline-offset:2px}
+  .updated{color:var(--muted);font-size:14px;margin-top:40px}
+  .foot{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+  .foot a{color:var(--cream)}
+  @media (max-width:560px){h1{font-size:48px}}
+</style>
+
+<div class="wrap">
+  <h1>Privacy &amp; discretion</h1>
+  <p class="lead">Your events are private, and so is your information. Here's exactly what we collect, how we use it, and how we keep it safe, whether you're planning a backyard birthday or a high-profile private event.</p>
+
+  <div class="promise">
+    <h2>Our promise</h2>
+    <ul>
+      <li><b>We never sell, rent, or trade your information.</b> Not to advertisers, data brokers, or anyone else.</li>
+      <li><b>We only use your details to plan and run your event.</b></li>
+      <li><b>We're discreet.</b> We don't post photos, guest names, locations, or details from your event without your written permission.</li>
+      <li><b>Need extra confidentiality?</b> We're happy to sign a non-disclosure agreement (NDA) for your event.</li>
+    </ul>
+  </div>
+
+  <h2>What we collect</h2>
+  <p>When you request a booking, we collect only what we need to quote and staff your event:</p>
+  <ul>
+    <li>Your name, phone number, and email</li>
+    <li>Event date, start time, hours, guest count, and event type</li>
+    <li>The event's city and ZIP code (and the full address once you book, so we can arrive)</li>
+    <li>Your package, add-ons, and any notes you share (venue, theme, drink preferences)</li>
+  </ul>
+  <p>We don't ask for, and you should never send us, sensitive information like Social Security numbers or bank account details.</p>
+
+  <h2>How we use it</h2>
+  <ul>
+    <li>To send your estimate and confirm your booking</li>
+    <li>To contact you about your event by phone, text, or email</li>
+    <li>To plan staffing, travel, and setup</li>
+    <li>To send invoices and receipts</li>
+  </ul>
+  <p>We won't add you to marketing lists without asking first.</p>
+
+  <h2>How we keep it secure</h2>
+  <ul>
+    <li>Booking requests are stored in password-protected Google business accounts with two-step verification, accessible only to Pour Live.</li>
+    <li>Our website and booking form use encrypted HTTPS connections.</li>
+    <li>Payments are handled by a secure payment processor (such as Square). We never see or store your full card number.</li>
+    <li>Only the bartenders working your event receive the details they need to show up and serve, such as the date, time, and location.</li>
+  </ul>
+  <p>No system is perfectly secure, but we take reasonable, practical steps to protect your information and limit who can see it.</p>
+
+  <h2>Who we share it with</h2>
+  <p>Only the service providers we rely on to run the business: Google (website, forms, and email), our payment processor, and our texting provider for booking messages. They process your information on our behalf, not for their own marketing. We may also disclose information if required by law.</p>
+
+  <h2>How long we keep it</h2>
+  <p>We keep booking records as long as needed to serve you and to meet tax and accounting requirements, then delete them. You can ask us to delete your information sooner at any time, unless we're required to keep it.</p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li><b>See or update</b> the information we have about you</li>
+    <li><b>Delete</b> your information</li>
+    <li><b>Opt out</b> of texts at any time by replying STOP</li>
+  </ul>
+  <p>To make a request, email <a href="mailto:bookpourlive@gmail.com" target="_blank" rel="noopener">bookpourlive@gmail.com</a> and we'll respond promptly.</p>
+
+  <h2>Website</h2>
+  <p>This site is hosted by Google Sites, which may use cookies to operate and secure the site. We don't run advertising trackers or sell browsing data.</p>
+
+  <h2>Changes</h2>
+  <p>If we update this page, we'll change the date below. Questions anytime: <a href="mailto:bookpourlive@gmail.com" target="_blank" rel="noopener">bookpourlive@gmail.com</a>.</p>
+
+  <p class="updated">Last updated: November 2026</p>
+  <p class="foot">© 2026 Pour Live · Private bartending in the Inland Empire &amp; Los Angeles · <a href="mailto:bookpourlive@gmail.com" target="_blank" rel="noopener">bookpourlive@gmail.com</a></p>
+</div>

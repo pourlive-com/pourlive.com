@@ -470,12 +470,12 @@ a:hover {
   }
 }
 
-@media(max-width:560px) {
+@media(max-width:760px) {
   .nav-links {
     gap: 12px;
     font-size: 13px;
   }
-  .nav-links a:not(.active):not([href="book-your-bartender.html"]) {
+  .nav-links a:not(.active):not([href="/book-your-bartender"]) {
     display: none;
   }
   #terms-container {
@@ -567,17 +567,17 @@ a:hover {
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <div class="nav-wrap">
-      <a href="index.html" class="nav-brand">
+      <a href="/" class="nav-brand">
         <span class="pour">POUR</span>
         <span class="live"><i></i>LIVE</span>
       </a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="book-your-bartender.html">Book Your Bartender</a>
-        <a href="meet-your-bartender.html">Meet Your Bartender</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms-of-service.html" class="active">Terms of Service</a>
+        <a href="/">Home</a>
+        <a href="/book-your-bartender">Book Your Bartender</a>
+        <a href="/meet-your-bartender">Meet Your Bartender</a>
+        <a href="/faqs">FAQs</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms-of-service" class="active">Terms of Service</a>
       </div>
     </div>
   </nav>
@@ -608,7 +608,7 @@ a:hover {
     </div>
   </header>
 
-  <a class="back" href="index.html">
+  <a class="back" href="/">
     ← Back to Pour Live
   </a>
 
@@ -1126,7 +1126,7 @@ a:hover {
         <a class="contact-link" href="mailto:bookpourlive@gmail.com">
           Email Pour Live →
         </a>
-        <a class="contact-link secondary" href="index.html">
+        <a class="contact-link secondary" href="/">
           Return to Homepage
         </a>
       </div>
@@ -1151,29 +1151,4 @@ a:hover {
       <div>
         <h4>BOOK</h4>
         <a href="mailto:bookpourlive@gmail.com">bookpourlive@gmail.com</a>
-        <a href="https://www.pourlive.com" target="_top">www.pourlive.com</a>
-      </div>
-      <div>
-        <h4>SERVICE AREA</h4>
-        <p>Inland Empire</p>
-        <p>Los Angeles</p>
-        <p>Orange County</p>
-        <p>San Diego</p>
-      </div>
-      <div>
-        <h4>FOLLOW</h4>
-        <a href="https://www.instagram.com/pourlive" target="_blank" rel="noopener">
-          Instagram @pourlive
-        </a>
-      </div>
-    </div>
-
-    <p class="legal">
-      © 2026 Pour Live. Private bartending service.
-      Clients provide all alcohol; we never sell or supply alcohol.
-    </p>
-  </footer>
-
-</div>
-</body>
-</html>
+        <a href="

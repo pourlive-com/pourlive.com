@@ -466,7 +466,7 @@
       gap: 12px;
       font-size: 13px;
     }
-    .nav-links a:not(.nav-cta):not([href="book-your-bartender.html"]) {
+    .nav-links a:not(.nav-cta):not([href="/book-your-bartender"]) {
       display: none;
     }
     .wrap {
@@ -498,17 +498,17 @@
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <div class="nav-wrap">
-      <a href="index.html" class="nav-brand">
+      <a href="/" class="nav-brand">
         <span class="pour">POUR</span>
         <span class="live"><i></i>LIVE</span>
       </a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="book-your-bartender.html" class="active">Book Your Bartender</a>
-        <a href="index.html#meet-bartender">Meet Your Bartender</a>
-        <a href="index.html#faqs">FAQs</a>
-        <a href="index.html#privacy">Privacy</a>
-        <a href="index.html#terms">Terms of Service</a>
+        <a href="/">Home</a>
+        <a href="/book-your-bartender" class="active">Book Your Bartender</a>
+        <a href="/meet-your-bartender">Meet Your Bartender</a>
+        <a href="/faqs">FAQs</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms-of-service">Terms of Service</a>
       </div>
     </div>
   </nav>

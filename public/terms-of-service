@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Pour Live Private Bartending</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --night: #0E0D0C;
+  --panel: #151311;
+  --cream: #F6F0E6;
+  --amber: #F2A33A;
+  --line: #2A2724;
+  --muted: #BDB5A8;
+  --field: #3A3631;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* STABLE STATIC SCROLLBOUNDS (NO DYNAMIC HEIGHT JITTER) */
+html, body {
+  background: var(--night);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  color: var(--cream);
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(14, 13, 12, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.nav-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.nav-brand .pour {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 28px;
+  line-height: .82;
+  letter-spacing: .03em;
+}
+
+.nav-brand .live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .5em;
+  color: var(--amber);
+}
+
+.nav-brand .live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .15s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--amber);
+}
+
+#terms-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  display: block;
+  width: 100%;
+  min-height: max-content;
+}
+
+h1, h2, h3, .pour {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* HEADER */
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.pour {
+  font-size: 96px;
+  line-height: .82;
+  letter-spacing: .03em;
+}
+
+.live {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: .6em;
+  color: var(--amber);
+  padding-left: 4px;
+}
+
+.live i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: inline-block;
+}
+
+.pitch {
+  flex: 1 1 320px;
+}
+
+.pitch h1 {
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: .02em;
+  margin: 0 0 12px;
+}
+
+.pitch p {
+  color: var(--muted);
+  margin: 0;
+  max-width: 60ch;
+  font-size: 15px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* INTRO */
+
+.intro {
+  margin-top: 30px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.intro h2 {
+  font-size: 35px;
+  margin: 0 0 10px;
+  line-height: 1;
+  color: var(--amber);
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+.updated {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(242, 163, 58, .1);
+  border: 1px solid rgba(242, 163, 58, .25);
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* SUMMARY */
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.summary-card {
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.summary-card h3 {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--amber);
+  margin: 0 0 9px;
+}
+
+.summary-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* TERMS */
+
+.terms {
+  margin-top: 40px;
+}
+
+.terms-heading {
+  font-size: 38px;
+  margin: 0 0 20px;
+  line-height: 1;
+}
+
+.term {
+  padding: 26px 28px;
+  margin-bottom: 15px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+}
+
+.term h2 {
+  font-size: 29px;
+  color: var(--amber);
+  margin: 0 0 13px;
+  line-height: 1.1;
+  letter-spacing: .02em;
+}
+
+.term p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 13px;
+}
+
+.term p:last-child {
+  margin-bottom: 0;
+}
+
+.term ul {
+  padding-left: 21px;
+  margin: 10px 0 15px;
+}
+
+.term li {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+  margin-bottom: 9px;
+}
+
+.term strong {
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.highlight {
+  background: rgba(242, 163, 58, .07);
+  border: 1px solid rgba(242, 163, 58, .35);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 18px 0;
+}
+
+.highlight strong {
+  color: var(--amber);
+}
+
+.highlight p {
+  margin: 0;
+}
+
+/* CONTACT */
+
+.contact {
+  margin-top: 35px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.contact h2 {
+  font-size: 35px;
+  color: var(--amber);
+  margin: 0 0 12px;
+}
+
+.contact p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 15px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 20px;
+  background: var(--amber);
+  color: var(--night);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-link:hover {
+  background: #FFC06A;
+  color: var(--night);
+  text-decoration: none;
+}
+
+.contact-link.secondary {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--field);
+}
+
+/* FOOTER */
+
+.foot {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 48px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.foot-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.foot-brand .pour {
+  font-size: 44px;
+}
+
+.foot-brand .live {
+  font-size: 11px;
+  letter-spacing: .55em;
+}
+
+.foot-brand .live i {
+  width: 7px;
+  height: 7px;
+}
+
+.foot-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 48px;
+}
+
+.foot h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--amber);
+}
+
+.foot p,
+.foot a {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: var(--cream);
+  text-decoration: none;
+  display: block;
+}
+
+.foot a:hover {
+  color: var(--amber);
+}
+
+.legal {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 13px !important;
+  color: var(--muted) !important;
+}
+
+/* RESPONSIVE QUERIES */
+
+@media(max-width:850px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:560px) {
+  .nav-links {
+    gap: 12px;
+    font-size: 13px;
+  }
+  .nav-links a:not(.active):not([href="book-your-bartender.html"]) {
+    display: none;
+  }
+  #terms-container {
+    padding: 24px 16px 60px;
+  }
+
+  .hero {
+    gap: 20px;
+    padding-bottom: 24px;
+  }
+
+  .pour {
+    font-size: 72px;
+  }
+
+  .pitch h1 {
+    font-size: 36px;
+  }
+
+  .pitch p {
+    font-size: 14px;
+  }
+
+  .intro {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .intro h2 {
+    font-size: 28px;
+  }
+
+  .summary {
+    gap: 12px;
+  }
+
+  .summary-card {
+    padding: 18px;
+  }
+
+  .terms {
+    margin-top: 28px;
+  }
+
+  .terms-heading {
+    font-size: 30px;
+  }
+
+  .term {
+    padding: 20px 18px;
+    margin-bottom: 12px;
+  }
+
+  .term h2 {
+    font-size: 24px;
+  }
+
+  .term p,
+  .term li {
+    font-size: 13.5px;
+  }
+
+  .contact {
+    padding: 20px;
+  }
+
+  .contact h2 {
+    font-size: 28px;
+  }
+
+  .contact-links {
+    flex-direction: column;
+  }
+
+  .contact-link {
+    width: 100%;
+  }
+
+  .foot {
+    margin-top: 36px;
+    padding-top: 20px;
+    gap: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-brand">
+        <span class="pour">POUR</span>
+        <span class="live"><i></i>LIVE</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="book-your-bartender.html">Book Your Bartender</a>
+        <a href="meet-your-bartender.html">Meet Your Bartender</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms-of-service.html" class="active">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="wrap" id="terms-container">
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="mark">
+      <svg width="86" height="86" viewBox="0 0 100 100" role="img" aria-label="Pour Live icon">
+        <path d="M50 8 C46 15 41 21 41 27 A9 9 0 0 0 59 27 C59 21 54 15 50 8 Z" fill="#F2A33A"/>
+        <path d="M18 44 L82 44 Q78 66 50 68 Q22 66 18 44 Z" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M50 68 L50 88 M36 90 L64 90" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="pour">POUR</div>
+        <div class="live"><i aria-hidden="true"></i>LIVE</div>
+      </div>
+    </div>
+
+    <div class="pitch">
+      <h1>TERMS OF SERVICE</h1>
+      <p>
+        Professional bartending for private events.
+        Clear expectations, responsible service,
+        and a smooth experience from first pour to last call.
+      </p>
+    </div>
+  </header>
+
+  <a class="back" href="index.html">
+    ← Back to Pour Live
+  </a>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h2>OUR SERVICE AGREEMENT</h2>
+    <p>
+      Welcome to Pour Live. These Terms of Service describe
+      the conditions governing the use of our website,
+      booking requests, and private event bartending services.
+    </p>
+    <p>
+      By submitting a booking request, accepting a written quote,
+      or engaging Pour Live for an event, you acknowledge these
+      terms. A confirmed booking may also be governed by a
+      separate written event agreement.
+    </p>
+    <p>
+      If a signed event agreement contains terms that differ
+      from this page, the signed agreement will control for
+      that event, subject to applicable law.
+    </p>
+    <div class="updated">
+      Last Updated: November 10, 2026
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="summary-card">
+      <h3>CLIENT-SUPPLIED ALCOHOL</h3>
+      <p>
+        Pour Live provides bartending services.
+        We do not sell or supply alcoholic beverages.
+        Clients or authorized venues provide alcohol
+        in accordance with applicable law.
+      </p>
+    </div>
+
+    <div class="summary-card">
+      <h3>CONFIRMED BOOKINGS</h3>
+      <p>
+        Submitting an event inquiry does not automatically
+        reserve your date. Bookings are confirmed through
+        written acceptance and any applicable payment requirements.
+      </p>
+    </div>
+
+    <div class="summary-card">
+      <h3>RESPONSIBLE SERVICE</h3>
+      <p>
+        Our bartenders may refuse alcohol service when required
+        by law or when a guest's condition or behavior
+        creates a safety concern.
+      </p>
+    </div>
+  </div>
+
+  <!-- TERMS -->
+  <main class="terms">
+    <h2 class="terms-heading">BOOKING POLICIES &amp; CONDITIONS</h2>
+
+    <section class="term">
+      <h2>01. ACCEPTANCE OF TERMS</h2>
+      <p>
+        These Terms of Service apply to visitors using the
+        Pour Live website and clients requesting or purchasing
+        private event bartending services.
+      </p>
+      <p>
+        Clients booking an event must be at least 18 years old
+        and legally capable of entering into a binding agreement.
+      </p>
+      <p>
+        The individual submitting the booking request represents
+        that they are authorized to make arrangements for the event.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>02. SERVICES PROVIDED</h2>
+      <p>
+        Pour Live provides professional bartending services for
+        private events, including weddings, birthdays, corporate
+        gatherings, banquets, celebrations, and other approved occasions.
+      </p>
+      <p>Depending on the selected package, services may include:</p>
+      <ul>
+        <li>Beer and wine service</li>
+        <li>Mixed drinks and classic cocktails</li>
+        <li>Signature cocktail preparation</li>
+        <li>Bar station setup and cleanup</li>
+        <li>Drink menu assistance</li>
+        <li>Approved event-specific add-ons</li>
+      </ul>
+      <p>
+        Services are limited to those specifically included
+        in the accepted event quote or written agreement.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>03. ALCOHOL RESPONSIBILITIES</h2>
+      <div class="highlight">
+        <p>
+          <strong>Important:</strong> Pour Live is a private
+          bartending service. We do not sell, furnish, or supply
+          alcoholic beverages as part of our standard services.
+        </p>
+      </div>
+      <p>
+        The client or authorized venue is responsible for purchasing
+        and providing all alcoholic beverages intended for event service.
+      </p>
+      <p>
+        Alcohol must be legally obtained, and its possession,
+        distribution, and consumption must comply with applicable
+        state and local laws.
+      </p>
+      <p>
+        The client is responsible for ensuring the event location
+        permits the planned alcohol service and for obtaining any
+        permits, approvals, or licenses required of the client or venue.
+      </p>
+      <p>
+        Pour Live reserves the right to decline any service arrangement
+        that would violate applicable alcohol regulations.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>04. BOOKING REQUESTS &amp; CONFIRMATION</h2>
+      <p>
+        Event inquiries submitted through our website are requests
+        for service, not guaranteed reservations.
+      </p>
+      <p>
+        A booking is considered confirmed only after Pour Live
+        provides written confirmation and any required payment
+        conditions have been satisfied.
+      </p>
+      <p>
+        Pour Live may decline requests based on staffing availability,
+        travel distance, event requirements, venue restrictions,
+        or other operational considerations.
+      </p>
+      <p>
+        Clients must provide accurate information regarding event
+        location, date, attendance, service hours, and requested services.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>05. PRICING &amp; MINIMUM SERVICE HOURS</h2>
+      <p>
+        Unless otherwise stated in a written quote, Pour Live's
+        standard pricing is calculated per bartender, per hour.
+      </p>
+      <p>
+        A <strong>four-hour minimum</strong> applies to
+        standard event bookings.
+      </p>
+      <p>Current advertised starting rates include:</p>
+      <ul>
+        <li><strong>Beer &amp; Wine:</strong> $50 per bartender, per hour</li>
+        <li><strong>Full Bar:</strong> $60 per bartender, per hour</li>
+        <li><strong>Signature Cocktails:</strong> $70 per bartender, per hour</li>
+      </ul>
+      <p>
+        Pricing may vary depending on event requirements,
+        staffing, add-ons, travel, and peak dates.
+      </p>
+      <p>
+        Website estimates are informational and are not final
+        binding quotes. The accepted written quote establishes
+        the applicable event pricing.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>06. STAFFING REQUIREMENTS</h2>
+      <p>
+        Pour Live generally estimates one bartender for every 50 guests.
+      </p>
+      <p>
+        Events exceeding that ratio may require additional bartenders
+        to maintain reasonable service standards and guest safety.
+      </p>
+      <p>
+        Final staffing requirements may also depend on the complexity
+        of the drink menu, event layout, service style, and expected guest volume.
+      </p>
+      <p>
+        Additional staffing costs will be disclosed in the event quote.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>07. TRAVEL &amp; HOLIDAY FEES</h2>
+      <p>
+        Standard travel pricing is based on distance from Riverside, California.
+      </p>
+      <ul>
+        <li>Within 25 miles: no additional travel charge</li>
+        <li>26–40 miles: $25 travel charge</li>
+        <li>41–60 miles: $50 travel charge</li>
+        <li>Beyond 60 miles: individually quoted</li>
+      </ul>
+      <p>
+        Events occurring during designated holidays or peak-demand dates
+        may be subject to a <strong>25% surcharge</strong>.
+      </p>
+      <p>
+        Applicable fees will be identified in the final event quote.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>08. DEPOSITS &amp; PAYMENTS</h2>
+      <p>
+        Pour Live may require a deposit or advance payment
+        to secure an event reservation.
+      </p>
+      <p>
+        Any deposit amount, payment deadline, remaining balance,
+        and accepted payment method will be provided in writing
+        before booking confirmation.
+      </p>
+      <p>
+        Clients are responsible for paying all agreed charges
+        according to the payment schedule in their booking agreement.
+      </p>
+      <p>
+        Additional services or approved extensions may result
+        in additional charges.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>09. CANCELLATIONS &amp; RESCHEDULING</h2>
+      <p>
+        Clients requesting cancellation or rescheduling should
+        notify Pour Live as soon as possible through the contact
+        information provided below.
+      </p>
+      <p>
+        Any applicable cancellation fees, deposit refunds,
+        or rescheduling conditions will be determined by
+        the written booking agreement and applicable law.
+      </p>
+      <p>
+        Rescheduling is subject to staff availability
+        and may require a revised quote.
+      </p>
+      <p>
+        If Pour Live must cancel a confirmed booking,
+        we will notify the client promptly and address
+        any payments according to the agreement and applicable law.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>10. EVENT LOCATION &amp; SETUP</h2>
+      <p>
+        The client must provide a safe and accessible service
+        location suitable for professional bartending.
+      </p>
+      <p>
+        Unless separately agreed, the client or venue is
+        responsible for providing the necessary bar space,
+        tables, electrical access, running water, and other
+        venue facilities required for the selected service.
+      </p>
+      <p>
+        Specific supplies and equipment included in each
+        package will be identified in the accepted quote.
+      </p>
+      <p>
+        Pour Live may decline unsafe working conditions
+        or request reasonable adjustments before beginning service.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>11. GUEST CONDUCT &amp; RESPONSIBLE ALCOHOL SERVICE</h2>
+      <p>
+        Pour Live is committed to responsible alcohol service.
+      </p>
+      <p>
+        Bartenders may request valid identification and refuse
+        alcoholic beverages to anyone under the legal drinking age.
+      </p>
+      <p>
+        Service may also be refused to individuals who appear
+        intoxicated, behave aggressively, threaten staff,
+        or otherwise create a safety concern.
+      </p>
+      <p>
+        The client is responsible for maintaining a safe event
+        environment and coordinating guest management or
+        security when appropriate.
+      </p>
+      <p>
+        Pour Live may suspend or discontinue service when
+        continuing would be unlawful or present a substantial safety risk.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>12. SERVICE HOURS &amp; OVERTIME</h2>
+      <p>
+        Bartending services are provided during the hours
+        specified in the confirmed booking.
+      </p>
+      <p>
+        Requests to extend service beyond the scheduled end time
+        are subject to bartender availability, venue restrictions,
+        and applicable laws.
+      </p>
+      <p>
+        Additional time must be approved by Pour Live
+        and may be billed at the applicable hourly rate.
+      </p>
+      <p>
+        Clients should not assume that bartenders will remain
+        beyond the contracted service period without prior authorization.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>13. EQUIPMENT &amp; PROPERTY</h2>
+      <p>
+        Pour Live may bring bartending tools and approved
+        service equipment required for the event.
+      </p>
+      <p>
+        Equipment provided by Pour Live remains its property
+        unless otherwise agreed in writing.
+      </p>
+      <p>
+        Clients are responsible for promptly reporting equipment
+        damage or property incidents occurring during the event.
+      </p>
+      <p>
+        Responsibility for damage or loss will be determined
+        under the booking agreement and applicable law.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>14. TIPS &amp; GRATUITIES</h2>
+      <p>
+        Tips are appreciated but are not automatically required
+        unless an agreed gratuity or service charge is expressly
+        included in the final quote.
+      </p>
+      <p>
+        Tip jars may be used where permitted by the client and venue.
+      </p>
+      <p>
+        Any mandatory service charges will be disclosed
+        before booking confirmation.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>15. EVENT CHANGES</h2>
+      <p>
+        Clients must notify Pour Live of significant changes
+        to their event, including:
+      </p>
+      <ul>
+        <li>Event date or start time</li>
+        <li>Event location or venue</li>
+        <li>Expected guest attendance</li>
+        <li>Requested drink menu</li>
+        <li>Service duration</li>
+        <li>Additional staffing requirements</li>
+      </ul>
+      <p>
+        Changes may affect staffing availability, pricing,
+        and the services we can provide.
+      </p>
+      <p>
+        Material changes may require a revised written agreement.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>16. LIMITATION OF LIABILITY</h2>
+      <p>
+        To the extent permitted by applicable law, Pour Live
+        is not responsible for losses caused solely by circumstances
+        outside its reasonable control, including independent
+        actions of guests, venue operators, or unrelated third parties.
+      </p>
+      <p>
+        Nothing in these terms excludes or limits liability
+        that cannot legally be excluded or limited.
+      </p>
+      <p>
+        Any contractual limitations of liability are subject
+        to applicable law and the specific written agreement
+        between Pour Live and the client.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>17. EVENTS BEYOND REASONABLE CONTROL</h2>
+      <p>
+        Events may be affected by circumstances beyond
+        the reasonable control of either party.
+      </p>
+      <p>
+        Examples include severe weather, natural disasters,
+        government restrictions, venue closures,
+        transportation disruptions, and other extraordinary circumstances.
+      </p>
+      <p>
+        If such circumstances materially interfere with the
+        scheduled services, both parties should communicate
+        promptly to determine reasonable next steps.
+      </p>
+      <p>
+        Any resulting cancellation, rescheduling, or refund
+        obligations will be governed by the booking agreement
+        and applicable law.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>18. WEBSITE INFORMATION &amp; ESTIMATES</h2>
+      <p>
+        Pour Live strives to keep website information
+        accurate and current.
+      </p>
+      <p>
+        However, package descriptions, service availability,
+        and pricing may change.
+      </p>
+      <p>
+        Online estimates are preliminary and may require
+        adjustment after event details are reviewed.
+      </p>
+      <p>
+        A final written quote will identify the agreed
+        pricing and scope of service.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>19. PRIVACY &amp; COMMUNICATIONS</h2>
+      <p>
+        Pour Live collects information necessary to respond
+        to inquiries, prepare estimates, coordinate bookings,
+        and provide services.
+      </p>
+      <p>
+        This information may include names, telephone numbers,
+        email addresses, event locations, and booking details.
+      </p>
+      <p>
+        By submitting an inquiry and providing contact consent,
+        you authorize Pour Live to communicate with you
+        regarding your request through the selected channels.
+      </p>
+      <p>
+        Promotional text messaging, if offered, will require
+        any additional consent mandated by law.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>20. GOVERNING LAW</h2>
+      <p>
+        These Terms of Service are governed by the laws
+        of the State of California, without regard to
+        conflict-of-law principles, except where applicable
+        law requires otherwise.
+      </p>
+      <p>
+        Any disputes arising from services will be addressed
+        in accordance with applicable law and any valid
+        written agreement between the parties.
+      </p>
+    </section>
+
+    <section class="term">
+      <h2>21. CHANGES TO THESE TERMS</h2>
+      <p>
+        Pour Live may update these Terms of Service periodically
+        to reflect changes in operations, service offerings,
+        or legal requirements.
+      </p>
+      <p>
+        Updated terms will be posted on this page
+        with a revised effective date.
+      </p>
+      <p>
+        Changes will not retroactively modify a confirmed
+        event agreement unless both parties agree
+        or applicable law permits the change.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <h2>QUESTIONS ABOUT OUR TERMS?</h2>
+      <p>
+        Have a question about your event, booking,
+        or service requirements? Contact Pour Live
+        before confirming your reservation.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:bookpourlive@gmail.com">
+          Email Pour Live →
+        </a>
+        <a class="contact-link secondary" href="index.html">
+          Return to Homepage
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="foot-brand">
+      <svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 8 C46 15 41 21 41 27 A9 9 0 0 0 59 27 C59 21 54 15 50 8 Z" fill="#F2A33A"/>
+        <path d="M18 44 L82 44 Q78 66 50 68 Q22 66 18 44 Z" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M50 68 L50 88 M36 90 L64 90" fill="none" stroke="#F6F0E6" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="pour">POUR</div>
+        <div class="live"><i aria-hidden="true"></i>LIVE</div>
+      </div>
+    </div>
+
+    <div class="foot-cols">
+      <div>
+        <h4>BOOK</h4>
+        <a href="mailto:bookpourlive@gmail.com">bookpourlive@gmail.com</a>
+        <a href="https://www.pourlive.com" target="_top">www.pourlive.com</a>
+      </div>
+      <div>
+        <h4>SERVICE AREA</h4>
+        <p>Inland Empire</p>
+        <p>Los Angeles</p>
+        <p>Orange County</p>
+        <p>San Diego</p>
+      </div>
+      <div>
+        <h4>FOLLOW</h4>
+        <a href="https://www.instagram.com/pourlive" target="_blank" rel="noopener">
+          Instagram @pourlive
+        </a>
+      </div>
+    </div>
+
+    <p class="legal">
+      © 2026 Pour Live. Private bartending service.
+      Clients provide all alcohol; we never sell or supply alcohol.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

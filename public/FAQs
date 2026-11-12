@@ -329,7 +329,7 @@
       gap: 12px;
       font-size: 13px;
     }
-    .nav-links a:not(.active):not([href="book-your-bartender.html"]) {
+    .nav-links a:not(.active):not([href="/book-your-bartender"]) {
       display: none;
     }
     .wrap {
@@ -358,17 +358,17 @@
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <div class="nav-wrap">
-      <a href="index.html" class="nav-brand">
+      <a href="/" class="nav-brand">
         <span class="pour">POUR</span>
         <span class="live"><i></i>LIVE</span>
       </a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="book-your-bartender.html">Book Your Bartender</a>
-        <a href="meet-your-bartender.html">Meet Your Bartender</a>
-        <a href="faqs.html" class="active">FAQs</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="/">Home</a>
+        <a href="/book-your-bartender">Book Your Bartender</a>
+        <a href="/meet-your-bartender">Meet Your Bartender</a>
+        <a href="/faqs" class="active">FAQs</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms-of-service">Terms of Service</a>
       </div>
     </div>
   </nav>
@@ -435,7 +435,7 @@
         <h2>Ready to get an instant quote?</h2>
         <p>Calculate your custom event estimate in under a minute.</p>
       </div>
-      <a href="book-your-bartender.html" class="btn">Book Your Bartender</a>
+      <a href="/book-your-bartender" class="btn">Book Your Bartender</a>
     </div>
 
     <footer class="foot">

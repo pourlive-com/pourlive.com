@@ -1,18 +1,11 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "pourlive",
-  "compatibility_date": "2026-11-12",
+  "name": "pourlive-com",
+  "compatibility_date": "2026-11-01",
   "assets": {
-    "directory": "."
+    "directory": "./public"
   },
   "routes": [
-    {
-      "pattern": "pourlive.com",
-      "custom_domain": true
-    },
-    {
-      "pattern": "www.pourlive.com",
-      "custom_domain": true
-    }
+    { "pattern": "pourlive.com", "custom_domain": true },
+    { "pattern": "www.pourlive.com", "custom_domain": true }
   ]
 }

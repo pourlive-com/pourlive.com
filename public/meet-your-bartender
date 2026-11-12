@@ -335,10 +335,14 @@
 
   @media (max-width:760px){
     .nav-links {
-      gap: 12px;
+      gap: 16px;
       font-size: 13px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .nav-links a:not(.active):not([href="/book-your-bartender"]) {
+    .nav-links::-webkit-scrollbar {
       display: none;
     }
     .hero, .beyond {
